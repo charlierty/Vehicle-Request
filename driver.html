@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/svg+xml" href="../admin/download.svg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Calendar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./driver.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo-container">
+            <img src="../admin/PNU OVFPA.png" alt="Logo" class="logo">
+        </div>
+        <h1 class="title">Driver Schedule View</h1>
+        <div class="user-info">
+            <button id="logoutButton" onclick="logout()">Logout</button>
+        </div>
+    </header>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Vehicle Request Calendar</h1>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <button class="btn btn-secondary" id="prevMonth">Previous</button>
+            <h2 id="monthYear"></h2>
+            <button class="btn btn-secondary" id="nextMonth">Next</button>
+        </div>
+        <div class="text-center mb-3">
+        <div class="calendar" id="calendar"></div>
+    </div>
+
+    <div id="reservationModal" class="modal">
+        <div class="modal-content">
+            <span id="modalClose" class="close">&times;</span>
+            <h3>Vehicle Request Details</h3>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+    
+    <script src="driver.js"></script>
+    <script>
+        document.getElementById('logoutButton').addEventListener('click', function () {
+            window.location.href = '/queue-management-system/index.html';
+        });
+    </script>
+</body>
+</html>
