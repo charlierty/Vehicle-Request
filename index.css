@@ -1,0 +1,118 @@
+/* General Body Styling */
+body {
+  background: url("PNU background.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header Styling */
+.header {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  background-color: #4169E1;
+  color: white;
+  position: relative;
+}
+
+.logo-container {
+  position: absolute;
+  left: 10px;
+}
+
+.logo {
+  height: 80px;
+}
+
+.header-image {
+  width: 100%;
+  max-width: 1200px; /* Adjust based on your needs */
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 20px;
+  margin: 0;
+  text-align: center;
+}
+
+/* Login Container Styling */
+.container {
+  margin-top: 50px;
+  max-width: 600px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header-fmso {  /* Add this new style for the FMSO header image */
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Form Styling */
+form label {
+  font-weight: bold;
+  color: #333;
+  text-align: left;
+  display: block;
+}
+
+form select, 
+form input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  width: 95%;
+  margin-bottom: 15px;
+}
+
+.btn-primary {
+  width: 100%;
+  background-color: #4169E1;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #4169E1;
+}
+
+/* Footer Link Styling */
+.footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="./frontend/public/download.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register - Facilities Management and Sustainability Office</title>
+  <style>
+    /* Provided Header CSS */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color: #4169E1; /* Royal Blue */
+      color: white;
+    }
+    
+    .logo {
+      height: 50px;
+    }
+    
+    .title {
+      margin: 0;
+      font-size: 24px;
+      text-align: center;
+      flex: 1;
+    }
+    
+    #logoutButton {
+      background-color: #f3f3f3;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    #logoutButton:hover {
+      background-color: #ffffff;
+    }
+
+    /* Additional CSS for the registration page */
+    body {
+  background: url("PNU background.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+    .container {
+      max-width: 400px;
+      margin: 40px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .form-group {
+      margin-bottom: 15px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    .form-group .error {
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+    
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4169E1;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      background-color: #3658b3;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="logo-container">
+      <img src="PNU OVFPA.png" alt="Logo" class="logo" />
+    </div>
+    <h1 class="title">Facilities Management and Sustainability Office</h1>
+  </header>
+
+  <!-- Registration Form Container -->
+  <div class="container">
+    <h2>Register</h2>
+    <form id="registrationForm">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required />
+        <div class="error" id="usernameError"></div>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+        <div class="error" id="emailError"></div>
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+        <div class="error" id="passwordError"></div>
+      </div>
+      
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required />
+        <div class="error" id="confirmPasswordError"></div>
+      </div>
+      
+      <div class="form-group">
+        <label for="accountType">Account Type</label>
+        <select id="accountType" name="accountType" required>
+          <option value="">Select account type</option>
+          <option value="admin">Admin Account</option>
+          <option value="worker">Worker Account</option>
+          <option value="client">Client Account</option>
+        </select>
+        <div class="error" id="accountTypeError"></div>
+      </div>
+      
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <script>
+    // JavaScript for form validation and submission
+    document.getElementById("registrationForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // Prevent default form submission
+
+      // Clear previous error messages
+      document.getElementById("usernameError").textContent = "";
+      document.getElementById("emailError").textContent = "";
+      document.getElementById("passwordError").textContent = "";
+      document.getElementById("confirmPasswordError").textContent = "";
+      document.getElementById("accountTypeError").textContent = "";
+
+      // Get form values
+      var username = document.getElementById("username").value.trim();
+      var email = document.getElementById("email").value.trim();
+      var password = document.getElementById("password").value;
+      var confirmPassword = document.getElementById("confirmPassword").value;
+      var accountType = document.getElementById("accountType").value;
+
+      var valid = true;
+
+      // Validate username
+      if (username === "") {
+        document.getElementById("usernameError").textContent = "Please enter a username.";
+        valid = false;
+      }
+
+      // Validate email (simple regex check)
+      var emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/;
+      if (email === "") {
+        document.getElementById("emailError").textContent = "Please enter an email address.";
+        valid = false;
+      } else if (!emailPattern.test(email)) {
+        document.getElementById("emailError").textContent = "Please enter a valid email address.";
+        valid = false;
+      }
+
+      // Validate password
+      if (password === "") {
+        document.getElementById("passwordError").textContent = "Please enter a password.";
+        valid = false;
+      } else if (password.length < 6) {
+        document.getElementById("passwordError").textContent = "Password must be at least 6 characters.";
+        valid = false;
+      }
+
+      // Validate confirm password
+      if (confirmPassword === "") {
+        document.getElementById("confirmPasswordError").textContent = "Please confirm your password.";
+        valid = false;
+      } else if (password !== confirmPassword) {
+        document.getElementById("confirmPasswordError").textContent = "Passwords do not match.";
+        valid = false;
+      }
+
+      // Validate account type selection
+      if (accountType === "") {
+        document.getElementById("accountTypeError").textContent = "Please select an account type.";
+        valid = false;
+      }
+
+      if (valid) {
+        // Registration is successful
+        // Display the confirmation message to the user
+        alert("Please wait for the confirmation of admin and we will contact you on your email.");
+        // Optionally, reset the form
+        document.getElementById("registrationForm").reset();
+      }
+    });
+  </script>
+</body>
+</html>

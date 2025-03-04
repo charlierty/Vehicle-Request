@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #002d6a;
+}
+
+.container {
+    padding: 20px;
+}
+
+h2 {
+    color: #ffffff;
+}
+
+.reservation-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-reservation {
+    width: 200px;
+    height: 100px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.btn-reservation:hover {
+    transform: scale(1.05);
+    background-color: #003d99;
+}
+
+.reservation-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: none; /* Hidden by default */
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#reservationTitle {
+    color: #4169E1;
+    text-align: center;
+}
+
+button[type="submit"] {
+    width: 100%;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #4169E1; /* Royal Blue */
+    color: white;
+  }
+  
+  .logo {
+    height: 50px;
+  }
+  
+  .title {
+    margin: 0;
+    font-size: 24px;
+    text-align: center;
+    flex: 1;
+  }
+  
+  #logoutButton {
+    /* Remove margin-left: auto since we're using flex layout in header */
+    background-color: #f3f3f3;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #logoutButton:hover {
+    background-color: #ffffff;
+  }

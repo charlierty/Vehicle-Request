@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/svg+xml" href="./download.svg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./reservation.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo-container">
+            <img src="./PNU OVFPA.png" alt="Logo" class="logo">
+        </div>
+        <h1 class="title">Facilities Management and Sustainability Office</h1>
+        <div class="user-info">
+            <button id="logoutButton" onclick="logout()">Logout</button>
+        </div>
+    </header>
+
+    <div class="text-end mt-2 me-3">
+        <a href="../admin.html" id="mainMenuButton" class="text-decoration-none text-white">Back to Main Menu</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h2 class="text-center mt-5">Reservation Requests</h2>
+        <div class="reservation-options mt-4">
+            <button class="btn btn-primary btn-reservation" onclick="openReservation('Vehicle Request')">Vehicle Request</button>
+            <button class="btn btn-primary btn-reservation" onclick="openReservation('Pest Control Service Request')">Pest Control Service Request</button>
+            <button class="btn btn-primary btn-reservation" onclick="openReservation('Facilities & Equipment Reservation')">Facilities & Equipment Reservation</button>
+        </div>
+        <div class="reservation-form mt-5" id="reservationFormContainer">
+            <h3 id="reservationTitle">Reservation Form</h3>
+            <form id="reservationForm">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name of Requesting Party:</label>
+                    <input type="text" id="name" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="purpose" class="form-label">Purpose:</label>
+                    <input type="purpose" id="purpose" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="office" class="form-label">Office:</label>
+                    <select id="office" class="form-select" required>
+                            <option value="">Select your office</option>
+                            <option value="Academic Council">Academic Council</option>
+                            <option value="Accounting Unit(AU)">Accounting Unit(AU)</option>
+                            <option value="Admission Office(AO)">Admission Office(AO)</option>
+                            <option value="Administrative Council">Administrative Council</option>
+                            <option value="Administrative Service Management Office(ASMO)">Administrative Service Management Office(ASMO)</option>
+                            <option value="Alumni relations Office(ARO)">Alumni relations Office(ARO)</option>
+                            <option value="Archives and Records Management Unit(ARMU)">Archives and Records Management Unit(ARMU)</option>
+                            <option value="Auxiliary Services and Business Development Office(ASBDO)">Auxiliary Services and Business Development Office(ASBDO)</option>
+                            <option value="Budget Unit(BU)">Budget Unit(BU)</option>
+                            <option value="Business and Events Services Unit(BESU)">Business and Events Services Unit(BESU)</option>
+                            <option value="Campus Development Coordinating Unit(CDCU)">Campus Development Coordinating Unit(CDCU)</option>
+                            <option value="Center for Advocacy, Research and Training">Center for Advocacy, Research and Training</option>
+                            <option value="Center for Reading and Literacy(CRL)">Center for Reading and Literacy(CRL)</option>
+                            <option value="Center for Sports, Culture and Arts Development(CSCAD)">Center for Sports, Culture and Arts Development(CSCAD)</option>
+                            <option value="Center for Transformative Education(CTE)">Center for Transformative Education(CTE)</option>
+                            <option value="Collection and Disbursement Unit(CDU)">Collection and Disbursement Unit(CDU)</option>
+                            <option value="College of Advance Studies(CAS)">College of Advance Studies(CAS)</option>
+                            <option value="College of Alternative and Lifelong Learning(CALL)">College of Alternative and Lifelong Learning(CALL)</option>
+                            <option value="College of Teacher Development(CTD)">College of Teacher Development(CTD)</option>
+                            <option value="Community Partnership and Extension Office(CPEO)">Community Partnership and Extension Office(CPEO)</option>
+                            <option value="Curriculum Management and Instructional Materials Office(CMIMO)">Curriculum Management and Instructional Materials Office(CMIMO)</option>
+                            <option value="Deputy Dean, College of Advanced Studies(CASDD)">Deputy Dean, College of Advanced Studies(CASDD)</option>
+                            <option value="Deputy Dean, College of Alternative and Lifelong Learning(CALLDD)">Deputy Dean, College of Alternative and Lifelong Learning(CALLDD)</option>
+                            <option value="Document Control Management Office(DCMO)">Document Control Management Office(DCMO)</option>
+                            <option value="Educational Policy Research and Development Office(EPRDO)">Educational Policy Research and Development Office(EPRDO)</option>
+                            <option value="Events Management Office(EMO)">Events Management Office(EMO)</option>
+                            <option value="Facilities Management and Sustainability Office (FMSO)">Facilities Management and Sustainability Office (FMSO)</option>
+                            <option value="Faculty of Behavioral and Social Sciences(FBESS)">Faculty of Behavioral and Social Sciences(FBESS)</option>
+                            <option value="Faculty of Education and Information Sciences(FEIS)">Faculty of Education and Information Sciences(FEIS)</option>
+                            <option value="Faculty of General Education and Experiential Learning(FGEEL)">Faculty of General Education and Experiential Learning(FGEEL)</option>
+                            <option value="Faculty of Languages and Literature(FLL)">Faculty of Languages and Literature(FLL)</option>
+                            <option value="Faculty of Science, Technology, and Mathematics(FSTeM)">Faculty of Science, Technology, and Mathematics(FSTeM)</option>
+                            <option value="Financial Management Office(FMO)">Financial Management Office(FMO)</option>
+                            <option value="Gender Equity, Diversity and Inclusion Office(GEDIO)">Gender Equity, Diversity and Inclusion Office(GEDIO)</option>
+                            <option value="General Service Unit(GSU)">General Service Unit(GSU)</option>
+                            <option value="Graduate Student Research Office(GSRO)">Graduate Student Research Office(GSRO)</option>
+                            <option value="Human Resources management and Development Office(HRMDO)">Human Resources management and Development Office(HRMDO)</option>
+                            <option value="Institute of Creative Expressions and Human Movement Education(ICEHEME)">Institute of Creative Expressions and Human Movement Education(ICEHEME)</option>
+                            <option value="Institute of Teaching and Learning(ITL)">Institute of Teaching and Learning(ITL)</option>
+                            <option value="Institutional Student Program and Services Unit(ISPSU)">Institutional Student Program and Services Unit(ISPSU)</option>
+                            <option value="Knowledge Management and Strategic Foresight Office(KMSFO)">Knowledge Management and Strategic Foresight Office(KMSFO)</option>
+                            <option value="Language Study Center(LSC)">Language Study Center(LSC)</option>
+                            <option value="Legal Affairs Office(LAO)">Legal Affairs Office(LAO)</option>
+                            <option value="Linkages and International Office(LIO)">Linkages and International Office(LIO)</option>
+                            <option value="Management Information System Office(MISO)">Management Information System Office(MISO)</option>
+                            <option value="Office of the Board Secretary(OBS)">Office of the Board Secretary(OBS)</option>
+                            <option value="Office of the Internal Audit(OIA)">Office of the Internal Audit(OIA)</option>
+                            <option value="Office of the University President(OUP)">Office of the University President(OUP)</option>
+                            <option value="Office of the Vice President Student Success and Stakeholders Services(OVPSSSS)">Office of the Vice President Student Success and Stakeholders Services(OVPSSSS)</option>
+                            <option value="Office of the Vice President for Academics(OVPA)">Office of the Vice President for Academics(OVPA)</option>
+                            <option value="Office of the Vice President for Research, Extension, and Quality Assurance(OVPREQA)">Office of the Vice President for Research, Extension, and Quality Assurance(OVPREQA)</option>
+                            <option value="Personnel Development and Evaluation Services Unit(PDESU)">Personnel Development and Evaluation Services Unit(PDESU)</option>
+                            <option value="Personnel Management Services Unit(PMSU)">Personnel Management Services Unit(PMSU)</option>
+                            <option value="Planning Office(PLO)">Planning Office(PLO)</option>
+                            <option value="Presidential Management Unit(PresMU)">Presidential Management Unit(PresMU)</option>
+                            <option value="Printing and Press Unit(PPU)">Printing and Press Unit(PPU)</option>
+                            <option value="Procurement Management Unit(PMU)">Procurement Management Unit(PMU)</option>
+                            <option value="Project Development Unit(PDU)">Project Development Unit(PDU)</option>
+                            <option value="Publication Office(PO)">Publication Office(PO)</option>
+                            <option value="Quality Assurance Management Office(QAMO)">Quality Assurance Management Office(QAMO)</option>
+                            <option value="Research Institute for Teacher Quality(RITQ)">Research Institute for Teacher Quality(RITQ)</option>
+                            <option value="Research Management Office(RMO)">Research Management Office(RMO)</option>
+                            <option value="Research and Extension Council">Research and Extension Council</option>
+                            <option value="Research Services Unit(RSU)">Research Services Unit(RSU)</option>
+                            <option value="Safe Space Unit(SSU)">Safe Space Unit(SSU)</option>
+                            <option value="Science, Technology and Society Center(STSC)">Science, Technology and Society Center(STSC)</option>
+                            <option value="Security and Safety Management Unit(SSMU)">Security and Safety Management Unit(SSMU)</option>
+                            <option value="Strategic Communications and Public Relations Unit(SCPRU)">Strategic Communications and Public Relations Unit(SCPRU)</option>
+                            <option value="Student Affairs and Services Office(SASO)">Student Affairs and Services Office(SASO)</option>
+                            <option value="Student Development Services Unit(SDSU)">Student Development Services Unit(SDSU)</option>
+                            <option value="Student Welfare Services Unit(SWSU)">Student Welfare Services Unit(SWSU)</option>
+                            <option value="Supply and Property Unit(SPU)">Supply and Property Unit(SPU)</option>
+                            <option value="Technology Transfer and Intellectual Property Unit(TTIPU)">Technology Transfer and Intellectual Property Unit(TTIPU)</option>
+                            <option value="University Health Services Unit(UHSU)">University Health Services Unit(UHSU)</option>
+                            <option value="University Library(UL)">University Library(UL)</option>
+                            <option value="University Registrar's Office(URO)">University Registrar's Office(URO)</option>                 </select>
+                </div>
+                <div class="mb-3">
+                    <label for="dateRequested" class="form-label">Requested Date:</label>
+                    <input type="date" id="dateRequested" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="dateAssigned" class="form-label">Assigned Date:</label>
+                    <input type="date" id="dateAssigned" class="form-control">
+                </div>                
+                <div class="mb-3">
+                    <label for="time" class="form-label">Time:</label>
+                    <select id="time" class="form-select" required>
+                        <option value="">Select time</option>
+                        <option value="00:00">12:00 AM</option>
+                        <option value="00:15">12:15 AM</option>
+                        <option value="00:30">12:30 AM</option>
+                        <option value="00:45">12:45 AM</option>
+                        <option value="01:00">1:00 AM</option>
+                        <option value="01:15">1:15 AM</option>
+                        <option value="01:30">1:30 AM</option>
+                        <option value="01:45">1:45 AM</option>
+                        <option value="02:00">2:00 AM</option>
+                        <option value="02:15">2:15 AM</option>
+                        <option value="02:30">2:30 AM</option>
+                        <option value="02:45">2:45 AM</option>
+                        <option value="03:00">3:00 AM</option>
+                        <option value="03:15">3:15 AM</option>
+                        <option value="03:30">3:30 AM</option>
+                        <option value="03:45">3:45 AM</option>
+                        <option value="04:00">4:00 AM</option>
+                        <option value="04:15">4:15 AM</option>
+                        <option value="04:30">4:30 AM</option>
+                        <option value="04:45">4:45 AM</option>
+                        <option value="05:00">5:00 AM</option>
+                        <option value="05:15">5:15 AM</option>
+                        <option value="05:30">5:30 AM</option>
+                        <option value="05:45">5:45 AM</option>
+                        <option value="06:00">6:00 AM</option>
+                        <option value="06:15">6:15 AM</option>
+                        <option value="06:30">6:30 AM</option>
+                        <option value="06:45">6:45 AM</option>
+                        <option value="07:00">7:00 AM</option>
+                        <option value="07:15">7:15 AM</option>
+                        <option value="07:30">7:30 AM</option>
+                        <option value="07:45">7:45 AM</option>
+                        <option value="08:00">8:00 AM</option>
+                        <option value="08:15">8:15 AM</option>
+                        <option value="08:30">8:30 AM</option>
+                        <option value="08:45">8:45 AM</option>
+                        <option value="09:00">9:00 AM</option>
+                        <option value="09:15">9:15 AM</option>
+                        <option value="09:30">9:30 AM</option>
+                        <option value="09:45">9:45 AM</option>
+                        <option value="10:00">10:00 AM</option>
+                        <option value="10:15">10:15 AM</option>
+                        <option value="10:30">10:30 AM</option>
+                        <option value="10:45">10:45 AM</option>
+                        <option value="11:00">11:00 AM</option>
+                        <option value="11:15">11:15 AM</option>
+                        <option value="11:30">11:30 AM</option>
+                        <option value="11:45">11:45 AM</option>
+                        <option value="12:00">12:00 PM</option>
+                        <option value="12:15">12:15 PM</option>
+                        <option value="12:30">12:30 PM</option>
+                        <option value="12:45">12:45 PM</option>
+                        <option value="13:00">1:00 PM</option>
+                        <option value="13:15">1:15 PM</option>
+                        <option value="13:30">1:30 PM</option>
+                        <option value="13:45">1:45 PM</option>
+                        <option value="14:00">2:00 PM</option>
+                        <option value="14:15">2:15 PM</option>
+                        <option value="14:30">2:30 PM</option>
+                        <option value="14:45">2:45 PM</option>
+                        <option value="15:00">3:00 PM</option>
+                        <option value="15:15">3:15 PM</option>
+                        <option value="15:30">3:30 PM</option>
+                        <option value="15:45">3:45 PM</option>
+                        <option value="16:00">4:00 PM</option>
+                        <option value="16:15">4:15 PM</option>
+                        <option value="16:30">4:30 PM</option>
+                        <option value="16:45">4:45 PM</option>
+                        <option value="17:00">5:00 PM</option>
+                        <option value="17:15">5:15 PM</option>
+                        <option value="17:30">5:30 PM</option>
+                        <option value="17:45">5:45 PM</option>
+                        <option value="18:00">6:00 PM</option>
+                        <option value="18:15">6:15 PM</option>
+                        <option value="18:30">6:30 PM</option>
+                        <option value="18:45">6:45 PM</option>
+                        <option value="19:00">7:00 PM</option>
+                        <option value="19:15">7:15 PM</option>
+                        <option value="19:30">7:30 PM</option>
+                        <option value="19:45">7:45 PM</option>
+                        <option value="20:00">8:00 PM</option>
+                        <option value="20:15">8:15 PM</option>
+                        <option value="20:30">8:30 PM</option>
+                        <option value="20:45">8:45 PM</option>
+                        <option value="21:00">9:00 PM</option>
+                        <option value="21:15">9:15 PM</option>
+                        <option value="21:30">9:30 PM</option>
+                        <option value="21:45">9:45 PM</option>
+                        <option value="22:00">10:00 PM</option>
+                        <option value="22:15">10:15 PM</option>
+                        <option value="22:30">10:30 PM</option>
+                        <option value="22:45">10:45 PM</option>
+                        <option value="23:00">11:00 PM</option>
+                        <option value="23:15">11:15 PM</option>
+                        <option value="23:30">11:30 PM</option>
+                        <option value="23:45">11:45 PM</option>
+                    </select>
+                </div>
+                <div class="mb-3" id="dynamicFields"></div>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+        <button class="btn-large btn-reservationdisplay" onclick="location.href='./display.html'">Reservation Calendar</button>
+    </div>
+
+    <script src="./reservation.js"></script>
+    <script>document.getElementById('logoutButton').addEventListener('click', function () {
+        window.location.href = '/queue-management-system/index.html'; 
+    });</script>
+</body>
+</html>
